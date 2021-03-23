@@ -21,7 +21,7 @@ class CreateQuotesTable extends Migration
             $table->string('title');
             $table->string('background');
             $table->string('date_show');
-            $table->increment('numero_expos');
+            $table->integer('numero_expos');
             $table->timestamps();
         });
     }
