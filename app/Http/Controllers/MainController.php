@@ -24,7 +24,7 @@ class MainController extends Controller
         $request->validate(
             [
                 'name' => 'required',
-                'email' => 'required|email|unique:Users',
+                'email' => 'required|email|unique:users',
                 'password' => 'required|min:5',
             ]
         );
@@ -34,6 +34,7 @@ class MainController extends Controller
             $user->email = $request->email;
             $user->password = hash::make($request->password);
             $user->save();
+            return redirect('/login');
         } catch (Exception $e) {
             return array("error"=>$e->getMessage());
         }
